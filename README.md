@@ -16,7 +16,7 @@ Create an options object.
 
 **url** is required and is the url to the page you want to validate.
 
-**format** defaults to json but also supports html, xhtml, xml, gnu
+**format** defaults to json but also supports html, xhtml, xml, gnu and text. This is the formatting of the returned data.
 
 ```javascript
 var validator = require('html-validator'),
@@ -27,7 +27,7 @@ var validator = require('html-validator'),
 
 validator(opts, function(err, data){
   if(err) throw err;
-
+  
   console.log(data);
 })
 
