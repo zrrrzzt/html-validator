@@ -1,19 +1,36 @@
 var request = require('request')
-  , validatorUrl = 'http://html5.validator.nu/?doc=';
+  , reqOpts = {
+      uri : 'http://html5.validator.nu',
+      qs: {
+        out:'json'
+      }
+    };
 
 module.exports = function(opts, callback){
 
   if(!opts.url){
     return callback(new Error('Missing required option: url'), null);
+  } else {
+    reqOpts.qs.doc = opts.url;
   }
 
-  var url = validatorUrl + opts.url + '&out=json';
+  if(opts.format){
+    reqOpts.qs.out = opts.format;
+  }
 
-  request(url, function(error, response, body){
+  request(reqOpts, function(error, response, body){
+
+    var data = body.toString();
+
     if(error){
       return callback(error, null);
-    } else {
-      return callback(null, JSON.parse(body.toString()));
     }
+
+    if(opts.format == 'json') {
+      data = JSON.parse(body.toString());
+    }
+
+    return callback(null, data);
+
   });
 }
