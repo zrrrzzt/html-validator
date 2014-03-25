@@ -27,8 +27,8 @@ var validator = require('html-validator'),
 
 validator(opts, function(err, data){
   if(err) throw err;
-  
+
   console.log(data);
-})
+});
 
 ```
