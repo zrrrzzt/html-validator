@@ -1,8 +1,5 @@
 var request = require('request')
-  , reqOpts = {
-      uri : 'http://html5.validator.nu',
-      qs: {}
-    };
+  , reqOpts = {uri : 'http://html5.validator.nu', qs : {}};
 
 module.exports = function(opts, callback){
 
