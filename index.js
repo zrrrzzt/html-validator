@@ -20,17 +20,13 @@ module.exports = function(opts, callback){
 
   request(reqOpts, function(error, response, body){
 
-    var data = body.toString();
-
     if(error){
       return callback(error, null);
     }
 
-    if(opts.format == 'json') {
-      data = JSON.parse(body.toString());
-    }
+    var data = opts.format == 'json' ? JSON.parse(body.toString()) : body.toString();
 
     return callback(null, data);
 
   });
-}
+};
