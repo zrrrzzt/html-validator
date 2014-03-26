@@ -24,7 +24,7 @@ module.exports = function(opts, callback){
       return callback(error, null);
     }
 
-    var data = opts.format == 'json' ? JSON.parse(body.toString()) : body.toString();
+    var data = opts.format == 'json' ? JSON.parse(body) : body;
 
     return callback(null, data);
 
