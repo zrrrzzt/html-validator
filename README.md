@@ -19,7 +19,7 @@ Create an options object.
 **format** This is the formatting of the returned data. It supports json, html, xhtml, xml, gnu and text.
 
 ```javascript
-var validator = require('html-validator'),
+var validator = require('html-validator')
   , opts = {
       url : 'http://url-to-validate.com',
       format : 'json'
