@@ -1,25 +1,42 @@
-var request = require('request')
-  , reqOpts = {uri : 'http://html5.validator.nu', qs : {}};
+var request = require('request');
+
+function mkReqOpts(opts){
+  var newOpts = {
+    uri: 'http://html5.validator.nu',
+    qs: {out:opts.format},
+    method: 'GET'
+  };
+
+  if(opts.url){
+    newOpts.qs.doc = opts.url;
+  }
+
+  if(opts.data){
+    newOpts.body = opts.data;
+    newOpts.method = 'POST';
+    newOpts.headers = {
+      'Content-Type': 'text/html; charset=utf-8'
+    };
+  }
+
+  return newOpts;
+}
 
 module.exports = function(opts, callback){
 
-  if(!opts.url){
-    return callback(new Error('Missing required option: url'), null);
-  } else {
-    reqOpts.qs.doc = opts.url;
+  if(!opts.format || (!opts.url && !opts.data)){
+    return callback(new Error('Missing required params'), null)
   }
 
-  if(opts.format){
-    reqOpts.qs.out = opts.format;
-  }
+  var reqOpts = mkReqOpts(opts);
 
-  request(reqOpts, function(error, response, body){
+  request(reqOpts, function(error, response, result){
 
     if(error){
       return callback(error, null);
     }
 
-    var data = opts.format == 'json' ? JSON.parse(body) : body;
+    var data = opts.format == 'json' ? JSON.parse(result) : result;
 
     return callback(null, data);
 
