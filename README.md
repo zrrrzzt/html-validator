@@ -12,6 +12,12 @@ Supports the following modes from Validator.nu [Web Service Interface](http://wi
 $ npm install html-validator
 ```
 
+##Test##
+
+```
+$ npm test
+```
+
 ##Usage##
 
 Create an options object.
