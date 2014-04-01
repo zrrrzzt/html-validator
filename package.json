@@ -1,6 +1,6 @@
 {
   "name": "html-validator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Validates html using validator.nu",
   "main": "index.js",
   "scripts": {
