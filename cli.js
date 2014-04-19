@@ -42,10 +42,7 @@ if(argv.url){
 }
 
 if(argv.file){
-  fs.readFileSync(argv.file, function(err, data){
-    if(err) throw err;
-    opts.data = data;
-  })
+  opts.data = fs.readFileSync(argv.file);
 }
 
 validator(opts, function(err, data){
