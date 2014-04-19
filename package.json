@@ -3,12 +3,12 @@
   "version": "0.0.4",
   "description": "Validates html using validator.nu",
   "author": {
-    "name":"Geir Gåsodden",
-    "email":"geir.gasodden@pythonia.no"
+    "name": "Geir Gåsodden",
+    "email": "geir.gasodden@pythonia.no"
   },
   "main": "index.js",
-  "bin":{
-    "html-validator":"cli.js"
+  "bin": {
+    "html-validator": "cli.js"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -16,7 +16,7 @@
   "scripts": {
     "test": "mocha --reporter spec test/*.js"
   },
-  "files":[
+  "files": [
     "index.js",
     "cli.js"
   ],
@@ -29,7 +29,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "request": "^2.34.0"
+    "request": "^2.34.0",
+    "minimist": "0.0.8"
   },
   "devDependencies": {
     "mocha": "^1.18.2"
