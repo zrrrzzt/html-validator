@@ -9,7 +9,7 @@ var fs = require('fs')
   , opts = {format:'text'}
   ;
 
-unction printHelp() {
+function printHelp() {
   console.log(pkg.description);
   console.log('');
   console.log('Usage:');
@@ -17,6 +17,7 @@ unction printHelp() {
   console.log('');
   console.log('Or:');
   console.log('  $ html-validator --file=<file>');
+  console.log('');
   console.log('Optional, specify format of returned data');
   console.log('Valid options: json, html, xhtml, xml, gnu and text (default)');
   console.log('  $ html-validate --url=<url> --format=<format>');
@@ -30,10 +31,6 @@ if (!query || process.argv.indexOf('-h') !== -1 || process.argv.indexOf('--help'
 if (process.argv.indexOf('-v') !== -1 || process.argv.indexOf('--version') !== -1) {
   console.log(pkg.version);
   return;
-}
-
-if(!argv.url && !argv.file){
-  throw new Error('Missing required params.');
 }
 
 if(argv.format){
