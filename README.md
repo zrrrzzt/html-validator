@@ -1,4 +1,4 @@
-#html-validator#
+#html-validator [![Build Status](https://travis-ci.org/zrrrzzt/html-validator.svg?branch=master)](https://travis-ci.org/zrrrzzt/html-validator)
 
 A Node.js module for validating html using [validator.nu](http://validator.nu/)
 
@@ -6,19 +6,19 @@ Supports the following modes from Validator.nu [Web Service Interface](http://wi
 - Document URL as a GET parameter; the service retrieves the document by URL over HTTP or HTTPS.
 - Document POSTed as the HTTP entity body; parameters in query string as with GET.
 
-##Installation##
+##Installation
 
 ```
 $ npm install html-validator
 ```
 
-##Test##
+##Test
 
 ```
 $ npm test
 ```
 
-##Usage##
+##Usage
 
 Create an options object.
 
