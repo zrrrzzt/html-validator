@@ -2,10 +2,24 @@
   "name": "html-validator",
   "version": "0.0.4",
   "description": "Validates html using validator.nu",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha test/test.js"
+  "author": {
+    "name":"Geir Gåsodden",
+    "email":"geir.gasodden@pythonia.no"
   },
+  "main": "index.js",
+  "bin":{
+    "html-validator":"cli.js"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec test/*.js"
+  },
+  "files":[
+    "index.js",
+    "cli.js"
+  ],
   "repository": {
     "type": "git",
     "url": "http://github.com/zrrrzzt/html-validator.git"
@@ -13,7 +27,6 @@
   "bugs": {
     "url": "http://github.com/zrrrzzt/html-validator/issues"
   },
-  "author": "Geir Gåsodden <geir.gasodden@pythonia.no>",
   "license": "MIT",
   "dependencies": {
     "request": "^2.34.0"
