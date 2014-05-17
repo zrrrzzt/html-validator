@@ -1,7 +1,7 @@
 {
   "name": "html-validator",
   "version": "0.0.5",
-  "description": "Validates html using validator.nu",
+  "description": "Validate html using validator.nu",
   "author": {
     "name": "Geir Gåsodden",
     "email": "geir.gasodden@pythonia.no"
