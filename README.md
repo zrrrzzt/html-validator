@@ -84,7 +84,7 @@ $ npm install html-validator -g
 With url
 
 ```
-$ html-validator --url=http://url-to-validate
+$ html-validator http://url-to-validate
 ```
 
 With file
@@ -98,5 +98,5 @@ Optional pass in format for returned data.
 Valid options: json, html, xhtml, xml, gnu and text (default).
 
 ```
-$ html-validator --url=http://url-to-validate --format=gnu
+$ html-validator http://url-to-validate --format=gnu
 ```
