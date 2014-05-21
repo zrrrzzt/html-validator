@@ -24,7 +24,7 @@ function mkReqOpts(opts){
   return newOpts;
 }
 
-module.exports = function(opts, callback){
+module.exports = function validator(opts, callback){
 
   if(!opts.format){
     return callback(new Error('Missing required param: format'), null)
