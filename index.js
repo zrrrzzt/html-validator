@@ -25,7 +25,9 @@ function mkReqOpts(opts){
 module.exports = function(opts, callback){
 
   if(!opts.format || (!opts.url && !opts.data)){
-    return callback(new Error('Missing required params'), null)
+    if(!opts.format){
+      return callback(new Error('Missing required param: format'), null)
+    }
   }
 
   var reqOpts = mkReqOpts(opts);
