@@ -8,7 +8,7 @@ describe('Validator - inputs', function(){
 
   it('Should throw if opts.format is not specified', function(done){
 
-    var opts = {};
+    var opts = {url:'http://www.npmjs.org'};
 
     validator(opts, function(err, data){
       assert.throws(function(){
@@ -27,7 +27,7 @@ describe('Validator - inputs', function(){
 
   it('Should throw if opts.url or opts.data is not specified', function(done){
 
-    var opts = {};
+    var opts = {format:'json'};
 
     validator(opts, function(err, data){
       assert.throws(function(){
