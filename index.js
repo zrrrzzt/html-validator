@@ -1,4 +1,6 @@
-var request = require('request');
+var request = require('request')
+  , validUrl = require('valid-url')
+  ;
 
 function mkReqOpts(opts){
   var newOpts = {
@@ -30,6 +32,10 @@ module.exports = function(opts, callback){
 
   if(!opts.url && !opts.data){
     return callback(new Error('Missing required params: url or data'), null)
+  }
+
+  if(opts.url && !validUrl.isWebUri(opts.url)){
+    return callback(new Error('Invalid url'), null);
   }
 
   var reqOpts = mkReqOpts(opts);
