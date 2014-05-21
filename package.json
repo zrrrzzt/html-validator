@@ -5,7 +5,7 @@
   "author": {
     "name": "Geir Gåsodden",
     "email": "geir.gasodden@pythonia.no",
-    "url":"https://github.com/zrrrzzt"
+    "url": "https://github.com/zrrrzzt"
   },
   "main": "index.js",
   "bin": {
@@ -30,8 +30,9 @@
   },
   "license": "MIT",
   "dependencies": {
+    "minimist": "0.0.8",
     "request": "^2.34.0",
-    "minimist": "0.0.8"
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "mocha": "^1.18.2"
