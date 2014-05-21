@@ -4,7 +4,8 @@
   "description": "Validate html using validator.nu",
   "author": {
     "name": "Geir Gåsodden",
-    "email": "geir.gasodden@pythonia.no"
+    "email": "geir.gasodden@pythonia.no",
+    "url":"https://github.com/zrrrzzt"
   },
   "main": "index.js",
   "bin": {
