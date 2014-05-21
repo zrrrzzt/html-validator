@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "minimist": "0.0.8",
+    "minimist": "^0.1.0",
     "request": "^2.34.0",
     "valid-url": "^1.0.9"
   },
