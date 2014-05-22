@@ -13,6 +13,10 @@ function mkReqOpts(opts){
     method: 'GET'
   };
 
+  if(opts.validator){
+    newOpts.uri = opts.validator;
+  }
+
   if(opts.url){
     newOpts.qs.doc = opts.url;
   }

@@ -1,6 +1,6 @@
 #html-validator [![Build Status](https://travis-ci.org/zrrrzzt/html-validator.svg?branch=master)](https://travis-ci.org/zrrrzzt/html-validator)
 
-A Node.js module/CLI app for validating html using [validator.nu](http://validator.nu/)
+A Node.js module/CLI app for validating html using [validator.w3.org/nu](http://validator.w3.org/nu/)
 
 ##Module
 Supports the following modes from Validator.nu [Web Service Interface](http://wiki.whatwg.org/wiki/Validator.nu_Web_Service_Interface)
