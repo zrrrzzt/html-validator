@@ -25,6 +25,7 @@ Create an options object.
 
 **format** This is the formatting of the returned data and it is required. It supports json, html, xhtml, xml, gnu and text.
 
+**validator** You can override the default validator as long as it exposes the same REST interface.
 
 **url** The url to the page you want to validate.
 
@@ -67,9 +68,28 @@ fs.readFile( 'file-to-validate.html', 'utf8', function( err, html ) {
 });
 ```
 
+**validator** You can override the default validator as long as it exposes the same REST interface.
+
+```javascript
+var validator = require('html-validator')
+  , opts = {
+      url : 'http://url-to-validate.com',
+      validator: 'http://html5.validator.nu',
+      format : 'json'
+  };
+
+validator(opts, function(err, data){
+  if(err) throw err;
+
+  console.log(data);
+});
+
+```
+
+
 ##CLI
 
-Pass in --url or --file and optional --format.
+Pass in <url> or --file and optional --format or --validator.
 
 ###Installation
 
@@ -84,7 +104,7 @@ $ npm install html-validator -g
 With url
 
 ```
-$ html-validator http://url-to-validate
+$ html-validator <url>
 ```
 
 With file
@@ -98,5 +118,13 @@ Optional pass in format for returned data.
 Valid options: json, html, xhtml, xml, gnu and text (default).
 
 ```
-$ html-validator http://url-to-validate --format=gnu
+$ html-validator <url> --format=gnu
+```
+
+Optional pass in another validator.
+
+It needs to expose the same REST interface.
+
+```
+$ html-validator <url> --validator='http://html5.validator.nu'
 ```
