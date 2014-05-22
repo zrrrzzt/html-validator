@@ -1,10 +1,14 @@
 var request = require('request')
   , validUrl = require('valid-url')
+  , userAgent = 'html-validator v0.0.7'
   ;
 
 function mkReqOpts(opts){
   var newOpts = {
-    uri: 'http://html5.validator.nu',
+    uri: 'http://validator.w3.org/nu/',
+    headers: {
+      'User-Agent' : userAgent
+    },
     qs: {out:opts.format},
     method: 'GET'
   };
@@ -17,7 +21,8 @@ function mkReqOpts(opts){
     newOpts.body = opts.data;
     newOpts.method = 'POST';
     newOpts.headers = {
-      'Content-Type': 'text/html; charset=utf-8'
+      'Content-Type': 'text/html; charset=utf-8',
+      'User-Agent' : userAgent
     };
   }
 

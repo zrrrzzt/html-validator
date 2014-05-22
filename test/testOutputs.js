@@ -6,7 +6,7 @@ var assert = require('assert')
 
 describe('Validator - outputs', function () {
 
-  it('Should get 0 messages from valid.html', function (done) {
+  it('Should get 0 error messages from valid.html', function (done) {
     fs.readFile('test/valid.html', 'utf-8', function(err, html){
       if(err) throw err;
 
@@ -14,13 +14,21 @@ describe('Validator - outputs', function () {
 
       validator(opts, function(error, data){
         if(error) throw error;
-        assert.equal(0, data.messages.length);
+
+        var errors = 0;
+        data.messages.forEach(function(msg){
+          if(msg.type === 'error'){
+            errors++;
+          }
+        });
+
+        assert.equal(0, errors);
         done();
       });
     });
   });
 
-  it('Should get 1 message from invalid.html', function (done) {
+  it('Should get 1 error message from invalid.html', function (done) {
     fs.readFile('test/invalid.html', 'utf-8', function(err, html){
       if(err) throw err;
 
@@ -28,7 +36,15 @@ describe('Validator - outputs', function () {
 
       validator(opts, function(error, data){
         if(error) throw error;
-        assert.equal(1, data.messages.length);
+
+        var errors = 0;
+        data.messages.forEach(function(msg){
+          if(msg.type === 'error'){
+            errors++;
+          }
+        });
+
+        assert.equal(1, errors);
         done();
       });
     });
