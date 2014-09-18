@@ -13,14 +13,14 @@ function printHelp() {
   console.log(pkg.description);
   console.log('');
   console.log('Usage:');
-  console.log('  $ html-validate <url>');
+  console.log('  $ html-validator <url>');
   console.log('');
   console.log('Or:');
   console.log('  $ html-validator --file=<file>');
   console.log('');
   console.log('Optional, specify format of returned data');
   console.log('Valid options: json, html, xhtml, xml, gnu and text (default)');
-  console.log('  $ html-validate <url> --format=<format>');
+  console.log('  $ html-validator <url> --format=<format>');
 }
 
 if (!query || process.argv.indexOf('-h') !== -1 || process.argv.indexOf('--help') !== -1) {
