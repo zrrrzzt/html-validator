@@ -1,6 +1,6 @@
 {
   "name": "html-validator",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Validate html using validator.w3.org/nu",
   "author": {
     "name": "Geir Gåsodden",
