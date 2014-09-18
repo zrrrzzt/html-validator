@@ -9,7 +9,9 @@ function mkReqOpts(opts){
     headers: {
       'User-Agent' : userAgent
     },
-    qs: {out:opts.format},
+    qs: {
+          out:opts.format || 'json'
+    },
     method: 'GET'
   };
 
@@ -34,10 +36,6 @@ function mkReqOpts(opts){
 }
 
 module.exports = function validator(opts, callback){
-
-  if(!opts.format){
-    return callback(new Error('Missing required param: format'), null)
-  }
 
   if(!opts.url && !opts.data){
     return callback(new Error('Missing required params: url or data'), null)
