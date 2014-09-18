@@ -23,7 +23,7 @@ $ npm test
 
 Create an options object.
 
-**format** This is the formatting of the returned data and it is required. It supports json, html, xhtml, xml, gnu and text.
+**format** This is the formatting of the returned data. It supports json (default), html, xhtml, xml, gnu and text.
 
 **validator** You can override the default validator as long as it exposes the same REST interface.
 
@@ -33,7 +33,7 @@ Create an options object.
 var validator = require('html-validator')
   , opts = {
       url : 'http://url-to-validate.com',
-      format : 'json'
+      format : 'text'
   };
 
 validator(opts, function(err, data){
@@ -50,7 +50,7 @@ validator(opts, function(err, data){
 var validator = require('html-validator')
   , fs = require('fs')
   , opts = {
-    format : 'json'
+    format : 'text'
   };
 
 
@@ -75,7 +75,7 @@ var validator = require('html-validator')
   , opts = {
       url : 'http://url-to-validate.com',
       validator: 'http://html5.validator.nu',
-      format : 'json'
+      format : 'text'
   };
 
 validator(opts, function(err, data){
