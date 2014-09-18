@@ -1,6 +1,6 @@
 var request = require('request')
   , validUrl = require('valid-url')
-  , userAgent = 'html-validator v0.0.7'
+  , userAgent = 'html-validator v0.0.8'
   ;
 
 function mkReqOpts(opts){
