@@ -21,6 +21,10 @@
     "index.js",
     "cli.js"
   ],
+  "keywords": [
+    "html-validator",
+    "validation"
+  ],
   "repository": {
     "type": "git",
     "url": "http://github.com/zrrrzzt/html-validator.git"
