@@ -53,6 +53,10 @@ module.exports = function validator(opts, callback){
       return callback(error, null);
     }
 
+    if(response && response.statusCode !== 200) {
+      return callback(new Error('Non-200 status code from validator'), null);
+    }
+
     var data = opts.format == 'json' ? JSON.parse(result) : result;
 
     return callback(null, data);
