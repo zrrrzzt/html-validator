@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/zrrrzzt/html-validator.svg?branch=master)](https://travis-ci.org/zrrrzzt/html-validator)
+[![Coverage Status](https://coveralls.io/repos/zrrrzzt/html-validator/badge.svg?branch=master&service=github)](https://coveralls.io/github/zrrrzzt/html-validator?branch=master)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 # html-validator
 
 A Node.js module/CLI app for validating html using [validator.w3.org/nu](http://validator.w3.org/nu/)
@@ -100,3 +102,6 @@ validator(options, function(error, data) {
 })
 
 ```
+
+## Related
+- [html-validator-cli](https://github.com/zrrrzzt/html-validator-cli) CLI for this module
