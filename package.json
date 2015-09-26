@@ -2,6 +2,7 @@
   "name": "html-validator",
   "version": "1.0.0",
   "description": "Validate html using validator.w3.org/nu",
+  "license": "MIT",
   "author": {
     "name": "Geir Gåsodden",
     "email": "geir.gasodden@pythonia.no",
@@ -12,7 +13,10 @@
     "node": ">=0.12.0"
   },
   "scripts": {
-    "test": "mocha --reporter spec test/*.js"
+    "setup": "npm install && node setup.js",
+    "test": "standard && tap --reporter=spec test/*.js",
+    "coverage": "tap test/*.js --coverage",
+    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls"
   },
   "keywords": [
     "html-validator",
@@ -25,13 +29,13 @@
   "bugs": {
     "url": "http://github.com/zrrrzzt/html-validator/issues"
   },
-  "license": "MIT",
   "dependencies": {
-    "minimist": "^1.1.0",
     "request": "^2.42.0",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
-    "mocha": "^1.21.4"
+    "coveralls": "^2.11.4",
+    "standard": "^5.3.1",
+    "tap": "^1.4.1"
   }
 }
