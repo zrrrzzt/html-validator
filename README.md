@@ -3,7 +3,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 # html-validator
 
-A Node.js module/CLI app for validating html using [validator.w3.org/nu](http://validator.w3.org/nu/)
+A [Node.js](https://nodejs.org/) module for validating html using [validator.w3.org/nu](http://validator.w3.org/nu/)
 
 ## Module
 Supports the following modes from Validator.nu [Web Service Interface](http://wiki.whatwg.org/wiki/Validator.nu_Web_Service_Interface)
