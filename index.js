@@ -1,65 +1,36 @@
-var request = require('request')
-  , validUrl = require('valid-url')
-  , userAgent = 'html-validator v0.0.8'
-  ;
+'use strict'
 
-function mkReqOpts(opts){
-  var newOpts = {
-    uri: 'http://validator.w3.org/nu/',
-    headers: {
-      'User-Agent' : userAgent
-    },
-    qs: {
-          out:opts.format || 'json'
-    },
-    method: 'GET'
-  };
+function validator (options, callback) {
+  var request = require('request')
+  var validUrl = require('valid-url')
+  var setupOptions = require('./lib/setupOptions')
 
-  if(opts.validator){
-    newOpts.uri = opts.validator;
+  if (!options) {
+    return callback(new Error('Missing required input: options object'), null)
   }
 
-  if(opts.url){
-    newOpts.qs.doc = opts.url;
-  }
-
-  if(opts.data){
-    newOpts.body = opts.data;
-    newOpts.method = 'POST';
-    newOpts.headers = {
-      'Content-Type': 'text/html; charset=utf-8',
-      'User-Agent' : userAgent
-    };
-  }
-
-  return newOpts;
-}
-
-module.exports = function validator(opts, callback){
-
-  if(!opts.url && !opts.data){
+  if (!options.url && !options.data) {
     return callback(new Error('Missing required params: url or data'), null)
   }
 
-  if(opts.url && !validUrl.isWebUri(opts.url)){
-    return callback(new Error('Invalid url'), null);
+  if (options.url && !validUrl.isWebUri(options.url)) {
+    return callback(new Error('Invalid url'), null)
   }
 
-  var reqOpts = mkReqOpts(opts);
-
-  request(reqOpts, function(error, response, result){
-
-    if(error){
-      return callback(error, null);
+  var reqOpts = setupOptions(options)
+  request(reqOpts, function (error, response, result) {
+    if (error) {
+      return callback(error, null)
     }
 
-    if(response && response.statusCode !== 200) {
-      return callback(new Error('Non-200 status code from validator'), null);
+    if (response && response.statusCode !== 200) {
+      return callback(new Error('Validator returned unexpected statuscode: ' + response.statusCode), null)
     }
 
-    var data = opts.format == 'json' ? JSON.parse(result) : result;
+    var data = options.format === 'json' ? JSON.parse(result) : result
 
-    return callback(null, data);
+    return callback(null, data)
+  })
+}
 
-  });
-};
+module.exports = validator
