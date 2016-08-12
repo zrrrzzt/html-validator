@@ -1,6 +1,6 @@
 {
   "name": "html-validator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Validate html using validator.w3.org/nu",
   "license": "MIT",
   "author": {
@@ -10,11 +10,11 @@
   },
   "main": "index.js",
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=4.4.7"
   },
   "scripts": {
     "setup": "npm install && node setup.js",
-    "test": "standard && tap --reporter=spec test/*.js",
+    "test": "standard && nsp check && tap --reporter=spec test/*.js",
     "coverage": "tap test/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls"
   },
@@ -30,12 +30,13 @@
     "url": "http://github.com/zrrrzzt/html-validator/issues"
   },
   "dependencies": {
-    "request": "^2.64.0",
-    "valid-url": "^1.0.9"
+    "request": "2.74.0",
+    "valid-url": "1.0.9"
   },
   "devDependencies": {
-    "coveralls": "^2.11.4",
-    "standard": "^5.3.1",
-    "tap": "^1.4.1"
+    "coveralls": "2.11.12",
+    "nsp": "2.6.1",
+    "standard": "7.1.2",
+    "tap": "6.3.2"
   }
 }
