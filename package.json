@@ -1,6 +1,6 @@
 {
   "name": "html-validator",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Validate html using validator.w3.org/nu",
   "license": "MIT",
   "author": {
@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "engines": {
-    "node": ">=4.4.7"
+    "node": ">=4.5.0"
   },
   "scripts": {
     "setup": "npm install && node setup.js",
