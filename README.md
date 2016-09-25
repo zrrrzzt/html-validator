@@ -6,7 +6,7 @@
 A [Node.js](https://nodejs.org/) module for validating html using [validator.w3.org/nu](http://validator.w3.org/nu/)
 
 ## Module
-Supports the following modes from Validator.nu [Web Service Interface](http://wiki.whatwg.org/wiki/Validator.nu_Web_Service_Interface)
+Supports the following modes from Validator.nu [Web Service Interface](https://github.com/validator/validator/wiki/Service:-HTTP-interface)
 - Document URL as a GET parameter; the service retrieves the document by URL over HTTP or HTTPS.
 - Document POSTed as the HTTP entity body; parameters in query string as with GET.
 
