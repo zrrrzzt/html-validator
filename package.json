@@ -30,7 +30,7 @@
     "url": "http://github.com/zrrrzzt/html-validator/issues"
   },
   "dependencies": {
-    "request": "2.76.0",
+    "request": "2.77.0",
     "valid-url": "1.0.9"
   },
   "devDependencies": {
