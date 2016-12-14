@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "engines": {
-    "node": ">=4.6.1"
+    "node": ">=4.7.0"
   },
   "scripts": {
     "setup": "npm install",
