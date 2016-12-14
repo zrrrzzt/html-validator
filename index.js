@@ -3,7 +3,7 @@
 function validator (options, callback) {
   var request = require('request')
   var validUrl = require('valid-url')
-  var setupOptions = require('./lib/setupOptions')
+  var setupOptions = require('./lib/setup-options')
 
   if (!options) {
     return callback(new Error('Missing required input: options object'), null)
