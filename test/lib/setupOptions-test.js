@@ -1,7 +1,7 @@
 'use strict'
 
 var tap = require('tap')
-var setupOptions = require('../lib/setupOptions')
+var setupOptions = require('../../lib/setupOptions')
 
 tap.test('setupOptions returns expected object as default', function (test) {
   var options = {}

@@ -2,7 +2,7 @@
 
 var tap = require('tap')
 var fs = require('fs')
-var validator = require('../index')
+var validator = require('../../index')
 
 tap.test('Requires options to be specified', function (test) {
   var options = false
