@@ -13,7 +13,7 @@
     "node": ">=4.6.1"
   },
   "scripts": {
-    "setup": "npm install && node setup.js",
+    "setup": "npm install",
     "test": "standard && nsp check && tap --reporter=spec test/*.js",
     "coverage": "tap test/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls"
