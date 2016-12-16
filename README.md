@@ -40,16 +40,37 @@ Create an options object.
 
 **url** The url to the page you want to validate.
 
-```javascript
-var validator = require('html-validator')
-var options = {
+#### Promise
+
+```JavaScript
+const validator = require('html-validator')
+const options = {
  url: 'http://url-to-validate.com',
  format: 'text'
 }
 
-validator(options, function (err, data) {
-  if (err) {
-    throw err
+validator(options)
+  .then((data) => {
+    console.log(data)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+
+```
+
+#### Callback
+
+```JavaScript
+const validator = require('html-validator')
+const options = {
+ url: 'http://url-to-validate.com',
+ format: 'text'
+}
+
+validator(options, (error, data) => {
+  if (error) {
+    console.error(error)
   }
   console.log(data)
 })
@@ -58,49 +79,94 @@ validator(options, function (err, data) {
 
 **data** The html you want to validate
 
-```javascript
-var validator = require('html-validator')
-var fs = require('fs')
+#### Promise
+```JavaScript
+const validator = require('html-validator')
+const fs = require('fs')
 var options = {
   format: 'text'
 }
 
-fs.readFile( 'file-to-validate.html', 'utf8', function (err, html) {
+fs.readFile( 'file-to-validate.html', 'utf8', (err, html) => {
   if (err) {
     throw err;
   }
   
-  opts.data = html
+  options.data = html
 
-  validator(opts, function (error, data) {
+  validator(options)
+    .then((data) => {
+      console.log(data)
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+})
+```
+
+#### Callback
+```JavaScript
+const validator = require('html-validator')
+const fs = require('fs')
+var options = {
+  format: 'text'
+}
+
+fs.readFile( 'file-to-validate.html', 'utf8', (err, html) => {
+  if (err) {
+    throw err;
+  }
+  
+  options.data = html
+
+  validator(options, (error, data) => {
     if (error) {
-      throw error
+      console.error(error)
     }
 
     console.log(data)
   })
-
 })
 ```
 
 **validator** You can override the default validator as long as it exposes the same REST interface.
 
-```javascript
-var validator = require('html-validator')
-var options = {
+#### Promise
+
+```JavaScript
+const validator = require('html-validator')
+const options = {
   url: 'http://url-to-validate.com',
   validator: 'http://html5.validator.nu',
   format: 'text'
 };
 
-validator(options, function(error, data) {
+validator(options)
+  .then((data) => {
+    console.log(data)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+```
+
+#### Callback
+
+```JavaScript
+const validator = require('html-validator')
+const options = {
+  url: 'http://url-to-validate.com',
+  validator: 'http://html5.validator.nu',
+  format: 'text'
+};
+
+validator(options, (error, data) => {
   if (error) {
-    throw error
+    console.error(error)
   }
 
   console.log(data)
 })
-
 ```
 
 ## Related

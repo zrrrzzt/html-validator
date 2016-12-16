@@ -1,36 +1,59 @@
 'use strict'
 
-function validator (options, callback) {
-  var request = require('request')
-  var validUrl = require('valid-url')
-  var setupOptions = require('./lib/setup-options')
+const request = require('request')
+const validUrl = require('valid-url')
+const setupOptions = require('./lib/setup-options')
 
-  if (!options) {
-    return callback(new Error('Missing required input: options object'), null)
-  }
-
-  if (!options.url && !options.data) {
-    return callback(new Error('Missing required params: url or data'), null)
-  }
-
-  if (options.url && !validUrl.isWebUri(options.url)) {
-    return callback(new Error('Invalid url'), null)
-  }
-
-  var reqOpts = setupOptions(options)
-  request(reqOpts, function (error, response, result) {
-    if (error) {
-      return callback(error, null)
+module.exports = (options, callback) => {
+  return new Promise((resolve, reject) => {
+    if (!options) {
+      let error = new Error('Missing required input: options object')
+      if (callback) {
+        return callback(error, null)
+      }
+      reject(error)
     }
 
-    if (response && response.statusCode !== 200) {
-      return callback(new Error('Validator returned unexpected statuscode: ' + response.statusCode), null)
+    if (!options.url && !options.data) {
+      let error = new Error('Missing required params: url or data')
+      if (callback) {
+        return callback(error, null)
+      }
+      reject(error)
     }
 
-    var data = options.format === 'json' ? JSON.parse(result) : result
+    if (options.url && !validUrl.isWebUri(options.url)) {
+      let error = new Error('Invalid url')
+      if (callback) {
+        return callback(error, null)
+      }
+      reject(error)
+    }
 
-    return callback(null, data)
+    const reqOpts = setupOptions(options)
+
+    request(reqOpts, (error, response, result) => {
+      if (error) {
+        if (callback) {
+          return callback(error, null)
+        }
+        reject(error)
+      }
+
+      if (response && response.statusCode !== 200) {
+        let error = new Error('Validator returned unexpected statuscode: ' + response.statusCode)
+        if (callback) {
+          return callback(error, null)
+        }
+        reject(error)
+      }
+
+      const data = options.format === 'json' ? JSON.parse(result) : result
+
+      if (callback) {
+        return callback(null, data)
+      }
+      resolve(data)
+    })
   })
 }
-
-module.exports = validator
