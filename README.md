@@ -38,7 +38,9 @@ Create an options object.
 
 **validator** You can override the default validator as long as it exposes the same REST interface.
 
-**url** The url to the page you want to validate.
+**url**/**data** The url to the page you want to validate or the data you want validated.
+
+**ignore** String or array of strings you want the checker to remove in the response
 
 #### Promise
 
@@ -169,5 +171,49 @@ validator(options, (error, data) => {
 })
 ```
 
+**ignore** String or array of strings you want the checker to remove in the response. Requires format = text
+
+### Promise
+
+```JavaScript
+const validator = require('html-validator')
+const options = {
+ url: 'http://url-to-validate.com',
+ format: 'text',
+ ignore: 'Error: Stray end tag “div”.'
+}
+
+validator(options)
+  .then((data) => {
+    console.log(data)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+
+```
+
+#### Callback
+
+```JavaScript
+const validator = require('html-validator')
+const options = {
+ url: 'http://url-to-validate.com',
+ format: 'text',
+ ignore: 'Error: Stray end tag “div”.'
+}
+
+validator(options, (error, data) => {
+  if (error) {
+    console.error(error)
+  }
+  console.log(data)
+})
+
+```
+
 ## Related
 - [html-validator-cli](https://github.com/zrrrzzt/html-validator-cli) CLI for this module
+
+## License
+[MIT](LICENSE)
