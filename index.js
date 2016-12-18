@@ -3,6 +3,7 @@
 const request = require('request')
 const validUrl = require('valid-url')
 const setupOptions = require('./lib/setup-options')
+const filterData = require('./lib/filter-data')
 
 module.exports = (options, callback) => {
   return new Promise((resolve, reject) => {
@@ -31,6 +32,7 @@ module.exports = (options, callback) => {
     }
 
     const reqOpts = setupOptions(options)
+    const ignore = options.ignore
 
     request(reqOpts, (error, response, result) => {
       if (error) {
@@ -48,7 +50,11 @@ module.exports = (options, callback) => {
         reject(error)
       }
 
-      const data = options.format === 'json' ? JSON.parse(result) : result
+      var data = options.format === 'json' && !ignore ? JSON.parse(result) : result
+
+      if (ignore) {
+        data = filterData(data, ignore)
+      }
 
       if (callback) {
         return callback(null, data)

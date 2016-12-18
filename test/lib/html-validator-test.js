@@ -97,3 +97,18 @@ tap.test('Should get 1 error message from invalid.html', function (test) {
     test.done()
   })
 })
+
+tap.test('Should get 0 error messages from invalid.html if ignored', (test) => {
+  const options = {
+    format: 'text',
+    data: fs.readFileSync('test/data/invalid.html'),
+    ignore: 'Error: Stray end tag “div”.'
+  }
+  validator(options, (error, data) => {
+    if (error) {
+      throw error
+    }
+    tap.equal(false, /Error/.test(data), 'No errors found')
+    test.done()
+  })
+})

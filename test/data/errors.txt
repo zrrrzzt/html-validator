@@ -1,0 +1,74 @@
+Error: Element “meta” is missing one or more of the following attributes: “charset”, “content”, “http-equiv”, “itemprop”, “name”, “property”.
+From line 5, column 9; to line 5, column 78
+Warning: The “name” attribute is obsolete. Consider putting an “id” attribute on the nearest container instead.
+From line 558, column 13; to line 558, column 26
+Warning: The “banner” role is unnecessary for element “header”.
+From line 559, column 13; to line 559, column 34
+Warning: Empty heading.
+From line 562, column 13; to line 562, column 34
+Error: Attribute “capture” not allowed on element “input” at this point.
+From line 611, column 13; to line 614, column 35
+Warning: Element “nav” does not need a “role” attribute.
+From line 636, column 17; to line 636, column 71
+Error: Bad value “” for attribute “action” on element “form”: Must be non-empty.
+From line 672, column 13; to line 672, column 61
+Warning: Empty heading.
+From line 882, column 1; to line 882, column 4
+Error: Duplicate ID “tinymce”.
+From line 952, column 22; to line 952, column 56
+Warning: The first occurrence of ID “tinymce” was here.
+From line 794, column 197; to line 794, column 231
+Error: Duplicate ID “tinymce”.
+From line 953, column 22; to line 953, column 56
+Warning: The first occurrence of ID “tinymce” was here.
+From line 794, column 197; to line 794, column 231
+Error: Duplicate ID “tinymce”.
+From line 963, column 22; to line 963, column 56
+Warning: The first occurrence of ID “tinymce” was here.
+From line 794, column 197; to line 794, column 231
+Warning: Empty heading.
+From line 1058, column 1; to line 1058, column 4
+Error: Duplicate ID “tinymce”.
+From line 1664, column 22; to line 1664, column 56
+Warning: The first occurrence of ID “tinymce” was here.
+From line 794, column 197; to line 794, column 231
+Error: Duplicate ID “tinymce”.
+From line 1838, column 22; to line 1838, column 56
+Warning: The first occurrence of ID “tinymce” was here.
+From line 794, column 197; to line 794, column 231
+Error: Duplicate ID “tinymce”.
+From line 2384, column 22; to line 2384, column 56
+Warning: The first occurrence of ID “tinymce” was here.
+From line 794, column 197; to line 794, column 231
+Error: Duplicate ID “tinymce”.
+From line 2395, column 22; to line 2395, column 56
+Warning: The first occurrence of ID “tinymce” was here.
+From line 794, column 197; to line 794, column 231
+Error: Duplicate ID “tinymce”.
+From line 2509, column 77; to line 2509, column 95
+Warning: The first occurrence of ID “tinymce” was here.
+From line 794, column 197; to line 794, column 231
+Error: Element “img” is missing required attribute “src”.
+From line 2618, column 41; to line 2618, column 122
+Warning: The “contentinfo” role is unnecessary for element “footer”.
+From line 2663, column 1; to line 2663, column 69
+Error: Duplicate ID “Page-1”.
+From line 2666, column 13; to line 2666, column 90
+Warning: The first occurrence of ID “Page-1” was here.
+From line 565, column 25; to line 565, column 102
+Error: Duplicate ID “Imported-Layers”.
+From line 2667, column 17; to line 2667, column 82
+Warning: The first occurrence of ID “Imported-Layers” was here.
+From line 566, column 29; to line 566, column 94
+Warning: Section lacks heading. Consider using “h2”-“h6” elements to add identifying headings to all sections.
+From line 2713, column 9; to line 2713, column 33
+Warning: Section lacks heading. Consider using “h2”-“h6” elements to add identifying headings to all sections.
+From line 2721, column 9; to line 2721, column 33
+Warning: Section lacks heading. Consider using “h2”-“h6” elements to add identifying headings to all sections.
+From line 2726, column 9; to line 2726, column 30
+Error: End tag for  “body” seen, but there were unclosed elements.
+From line 3042, column 323; to line 3042, column 329
+Error: Unclosed element “div”.
+From line 526, column 9; to line 526, column 40
+There were errors.
+
