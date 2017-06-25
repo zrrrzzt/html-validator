@@ -1,6 +1,6 @@
 {
   "name": "html-validator",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Validate html using validator.w3.org/nu",
   "license": "MIT",
   "author": {
@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "engines": {
-    "node": ">=4.7.0"
+    "node": ">=4.8.3"
   },
   "scripts": {
     "setup": "npm install",
@@ -25,11 +25,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/zrrrzzt/html-validator.git"
+    "url": "https://github.com/zrrrzzt/html-validator.git"
   },
   "bugs": {
-    "url": "http://github.com/zrrrzzt/html-validator/issues"
+    "url": "httsp://github.com/zrrrzzt/html-validator/issues"
   },
+  "homepage": "httsp://github.com/zrrrzzt/html-validator",
   "dependencies": {
     "request": "2.81.0",
     "valid-url": "1.0.9"

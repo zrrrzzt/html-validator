@@ -1,11 +1,13 @@
 [![Build Status](https://travis-ci.org/zrrrzzt/html-validator.svg?branch=master)](https://travis-ci.org/zrrrzzt/html-validator)
 [![Coverage Status](https://coveralls.io/repos/zrrrzzt/html-validator/badge.svg?branch=master&service=github)](https://coveralls.io/github/zrrrzzt/html-validator?branch=master)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+
 # html-validator
 
 A [Node.js](https://nodejs.org/) module for validating html using [validator.w3.org/nu](http://validator.w3.org/nu/)
 
 ## Module
+
 Supports the following modes from Validator.nu [Web Service Interface](https://github.com/validator/validator/wiki/Service-%C2%BB-HTTP-interface)
 - Document URL as a GET parameter; the service retrieves the document by URL over HTTP or HTTPS.
 - Document POSTed as the HTTP entity body; parameters in query string as with GET.
@@ -213,7 +215,11 @@ validator(options, (error, data) => {
 ```
 
 ## Related
+
 - [html-validator-cli](https://github.com/zrrrzzt/html-validator-cli) CLI for this module
 
 ## License
+
 [MIT](LICENSE)
+
+![Robohash image of html-validator](https://robots.kebabstudios.party/html-validator.png "Robohash image of html-validator")
