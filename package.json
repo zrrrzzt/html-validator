@@ -32,12 +32,12 @@
   },
   "homepage": "httsp://github.com/zrrrzzt/html-validator",
   "dependencies": {
-    "request": "2.81.0",
+    "request": "2.85.0",
     "valid-url": "1.0.9"
   },
   "devDependencies": {
     "coveralls": "3.0.0",
-    "nsp": "2.7.0",
+    "nsp": "3.2.1",
     "standard": "10.0.3",
     "tap": "10.7.2"
   }
