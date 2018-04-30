@@ -4,7 +4,7 @@
 
 # html-validator
 
-A [Node.js](https://nodejs.org/) module for validating html using [validator.w3.org/nu](http://validator.w3.org/nu/)
+A [Node.js](https://nodejs.org/) module for validating html using [validator.w3.org/nu](https://validator.w3.org/nu/)
 
 ## Module
 

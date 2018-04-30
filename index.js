@@ -1,5 +1,3 @@
-'use strict'
-
 const request = require('request')
 const validUrl = require('valid-url')
 const setupOptions = require('./lib/setup-options')
