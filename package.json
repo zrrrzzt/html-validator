@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "engines": {
-    "node": ">=8.11.1"
+    "node": ">=8.11.2"
   },
   "scripts": {
     "setup": "npm install",
