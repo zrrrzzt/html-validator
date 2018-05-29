@@ -3,8 +3,8 @@ const validUrl = require('valid-url')
 const config = require('./lib/config')
 const filterData = require('./lib/filter-data')
 
-module.exports = (options, callback) => {
-  return new Promise((resolve, reject) => {
+module.exports = function (options, callback) {
+  return new Promise(function (resolve, reject) {
     if (!options) {
       let error = new Error('Missing required input: options object')
       return callback ? callback(error, null) : reject(error)
