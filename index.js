@@ -1,6 +1,6 @@
-const request = require('request')
+const axios = require('axios')
 const validUrl = require('valid-url')
-const setupOptions = require('./lib/setup-options')
+const config = require('./lib/config')
 const filterData = require('./lib/filter-data')
 
 module.exports = (options, callback) => {
@@ -20,26 +20,25 @@ module.exports = (options, callback) => {
       return callback ? callback(error, null) : reject(error)
     }
 
-    const reqOpts = setupOptions(options)
+    const axiosConfig = config(options)
     const ignore = options.ignore
 
-    request(reqOpts, (error, response, result) => {
-      if (error) {
+    axios(axiosConfig)
+      .then(function (response) {
+        if (response && response.status !== 200) {
+          let error = new Error('Validator returned unexpected statuscode: ' + response.status)
+          return callback ? callback(error, null) : reject(error)
+        }
+
+        let data = response.data
+
+        if (ignore) {
+          data = filterData(data, ignore)
+        }
+
+        return callback ? callback(null, data) : resolve(data)
+      }).catch(function (error) {
         return callback ? callback(error, null) : reject(error)
-      }
-
-      if (response && response.statusCode !== 200) {
-        let error = new Error('Validator returned unexpected statuscode: ' + response.statusCode)
-        return callback ? callback(error, null) : reject(error)
-      }
-
-      let data = options.format === 'json' && !ignore ? JSON.parse(result) : result
-
-      if (ignore) {
-        data = filterData(data, ignore)
-      }
-
-      return callback ? callback(null, data) : resolve(data)
-    })
+      })
   })
 }

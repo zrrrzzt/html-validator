@@ -1,9 +1,7 @@
-'use strict'
-
 const validator = require('./index')
 const options = {
-  url: 'https://getbootstrap.com/docs/4.0/components/collapse',
-  format: 'text'
+  url: 'https://www.github.com',
+  format: 'cucumber'
 }
 
 validator(options)

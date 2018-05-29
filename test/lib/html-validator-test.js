@@ -49,7 +49,7 @@ tap.test('Returns error if not status 200 OK', function (test) {
     url: 'https://www.github.com',
     format: 'cucumber'
   }
-  var expectedErrorMessage = 'Validator returned unexpected statuscode: 400'
+  var expectedErrorMessage = 'Request failed with status code 400'
   validator(options, function (error, data) {
     tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
     test.done()
