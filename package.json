@@ -10,11 +10,11 @@
   },
   "main": "index.js",
   "engines": {
-    "node": ">=8.11.2"
+    "node": ">=8.11.3"
   },
   "scripts": {
     "setup": "npm install",
-    "test": "standard && nsp check && tap --reporter=spec test/**/*.js",
+    "test": "standard && tap --reporter=spec test/**/*.js",
     "coverage": "tap test/**/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/**/*.js && cat coverage/lcov.info | coveralls",
     "standard-fix": "standard --fix",
@@ -38,7 +38,6 @@
   },
   "devDependencies": {
     "coveralls": "3.0.2",
-    "nsp": "3.2.1",
     "standard": "11.0.1",
     "tap": "12.0.1"
   }
