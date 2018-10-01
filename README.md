@@ -260,5 +260,3 @@ validator(options, (error, data) => {
 ## License
 
 [MIT](LICENSE)
-
-![Robohash image of html-validator](https://robots.kebabstudios.party/html-validator.png "Robohash image of html-validator")
