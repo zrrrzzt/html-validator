@@ -33,7 +33,7 @@ tap.test('config returns expected object with input from data', function (test) 
   test.done()
 })
 
-tap.test('config keeps original headers', function (test) {
+tap.test('config uses passed in headers', function (test) {
   var headers = {
     foo: 'bar',
     'User-Agent': 'something'
@@ -43,6 +43,22 @@ tap.test('config keeps original headers', function (test) {
   }
   var reqOptions = config(options)
 
-  tap.same(reqOptions.headers, headers, 'headers where not the same')
+  tap.same(reqOptions.headers, headers, 'headers are the same')
+  test.done()
+})
+
+tap.test('users defined headers takes prescient', function (test) {
+  var headers = {
+    foo: 'bar',
+    'User-Agent': 'something',
+    'Content-Type': 'json'
+  }
+  var options = {
+    headers,
+    data: 'http://html5.validator.nu'
+  }
+  var reqOptions = config(options)
+
+  tap.same(reqOptions.headers, headers, 'user headers take prescient')
   test.done()
 })
