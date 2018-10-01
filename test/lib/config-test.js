@@ -32,3 +32,17 @@ tap.test('config returns expected object with input from data', function (test) 
   tap.ok(reqOptions.headers, 'Headers are set')
   test.done()
 })
+
+tap.test('config keeps original headers', function (test) {
+  var headers = {
+    foo: 'bar',
+    'User-Agent': 'something'
+  }
+  var options = {
+    headers
+  }
+  var reqOptions = config(options)
+
+  tap.same(reqOptions.headers, headers, 'headers where not the same')
+  test.done()
+})
