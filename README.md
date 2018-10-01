@@ -214,6 +214,45 @@ validator(options, (error, data) => {
 
 ```
 
+**headers** Object of headers to pass in with the url request
+
+### Promise
+
+```JavaScript
+const validator = require('html-validator')
+const options = {
+ url: 'http://url-to-validate.com',
+ headers: {foo:"bar"}
+}
+
+validator(options)
+  .then((data) => {
+    console.log(data)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+
+```
+
+#### Callback
+
+```JavaScript
+const validator = require('html-validator')
+const options = {
+ url: 'http://url-to-validate.com',
+ headers: {foo:bar}
+}
+
+validator(options, (error, data) => {
+  if (error) {
+    console.error(error)
+  }
+  console.log(data)
+})
+
+```
+
 ## Related
 
 - [html-validator-cli](https://github.com/zrrrzzt/html-validator-cli) CLI for this module
