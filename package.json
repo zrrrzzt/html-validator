@@ -29,9 +29,9 @@
     "url": "git+https://github.com/zrrrzzt/html-validator.git"
   },
   "bugs": {
-    "url": "httsp://github.com/zrrrzzt/html-validator/issues"
+    "url": "https://github.com/zrrrzzt/html-validator/issues"
   },
-  "homepage": "httsp://github.com/zrrrzzt/html-validator#readme",
+  "homepage": "https://github.com/zrrrzzt/html-validator#readme",
   "dependencies": {
     "request": "2.88.0",
     "valid-url": "1.0.9"
