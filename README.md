@@ -6,6 +6,8 @@
 
 A [Node.js](https://nodejs.org/) module for validating html using [validator.w3.org/nu](https://validator.w3.org/nu/)
 
+Requires Node >= 8.15.3 for older versions use v3.13
+
 ## Module
 
 Supports the following modes from Validator.nu [Web Service Interface](https://github.com/validator/validator/wiki/Service-%C2%BB-HTTP-interface)
@@ -14,24 +16,9 @@ Supports the following modes from Validator.nu [Web Service Interface](https://g
 
 ### Installation
 
-#### From npm
-
 ```sh
-$ npm install html-validator
+$ npm i html-validator
 ```
-
-#### From GitHub
-
-```sh
-$ git clone git@github.com:zrrrzzt/html-validator.git
-```
-
-Then cd into directory and run the setup script
-
-```sh
-$ npm run setup
-```
-
 ### Usage
 
 Create an options object.
@@ -44,217 +31,128 @@ Create an options object.
 
 **ignore** String or array of strings you want the checker to remove in the response
 
-#### Promise
+**isLocal** Set this to true if you want to validate local urls
 
 ```JavaScript
-const validator = require('html-validator')
-const options = {
- url: 'http://url-to-validate.com',
- format: 'text'
-}
-
-validator(options)
-  .then((data) => {
-    console.log(data)
-  })
-  .catch((error) => {
-    console.error(error)
-  })
-
-```
-
-#### Callback
-
-```JavaScript
-const validator = require('html-validator')
-const options = {
- url: 'http://url-to-validate.com',
- format: 'text'
-}
-
-validator(options, (error, data) => {
-  if (error) {
+(async () => {
+  const validator = require('html-validator')
+  const options = {
+  url: 'http://url-to-validate.com',
+  format: 'text'
+  }
+  
+  try {
+    const result = await validator(options)
+    console.log(result)
+  } catch (error) {
     console.error(error)
   }
-  console.log(data)
-})
-
+})()
 ```
-
 **data** The html you want to validate
 
-#### Promise
 ```JavaScript
-const validator = require('html-validator')
-const fs = require('fs')
-var options = {
-  format: 'text'
-}
-
-fs.readFile( 'file-to-validate.html', 'utf8', (err, html) => {
-  if (err) {
-    throw err;
+(async () => {
+  const validator = require('html-validator')
+  const { readFileSync } = require('fs')
+  const options = {
+  url: 'http://url-to-validate.com',
+  format: 'text',
+  data: readFileSync('file-to-validate.html', 'utf8')
   }
   
-  options.data = html
-
-  validator(options)
-    .then((data) => {
-      console.log(data)
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-})
-```
-
-#### Callback
-```JavaScript
-const validator = require('html-validator')
-const fs = require('fs')
-var options = {
-  format: 'text'
-}
-
-fs.readFile( 'file-to-validate.html', 'utf8', (err, html) => {
-  if (err) {
-    throw err;
+  try {
+    const result = await validator(options)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
   }
-  
-  options.data = html
-
-  validator(options, (error, data) => {
-    if (error) {
-      console.error(error)
-    }
-
-    console.log(data)
-  })
-})
+})()
 ```
 
 **validator** You can override the default validator as long as it exposes the same REST interface.
 
-#### Promise
-
 ```JavaScript
-const validator = require('html-validator')
-const options = {
+(async () => {
+  const validator = require('html-validator')
+  const options = {
   url: 'http://url-to-validate.com',
   validator: 'http://html5.validator.nu',
   format: 'text'
-};
-
-validator(options)
-  .then((data) => {
-    console.log(data)
-  })
-  .catch((error) => {
-    console.error(error)
-  })
-```
-
-#### Callback
-
-```JavaScript
-const validator = require('html-validator')
-const options = {
-  url: 'http://url-to-validate.com',
-  validator: 'http://html5.validator.nu',
-  format: 'text'
-};
-
-validator(options, (error, data) => {
-  if (error) {
+  }
+  
+  try {
+    const result = await validator(options)
+    console.log(result)
+  } catch (error) {
     console.error(error)
   }
-
-  console.log(data)
-})
+})()
 ```
 
 **ignore** String or array of strings you want the checker to remove in the response. Requires format = text
 
-### Promise
-
 ```JavaScript
-const validator = require('html-validator')
-const options = {
- url: 'http://url-to-validate.com',
- format: 'text',
- ignore: 'Error: Stray end tag “div”.'
-}
-
-validator(options)
-  .then((data) => {
-    console.log(data)
-  })
-  .catch((error) => {
-    console.error(error)
-  })
-
-```
-
-#### Callback
-
-```JavaScript
-const validator = require('html-validator')
-const options = {
- url: 'http://url-to-validate.com',
- format: 'text',
- ignore: 'Error: Stray end tag “div”.'
-}
-
-validator(options, (error, data) => {
-  if (error) {
+(async () => {
+  const validator = require('html-validator')
+  const options = {
+  url: 'http://url-to-validate.com',
+  format: 'text',
+  ignore: 'Error: Stray end tag “div”.'
+  }
+  
+  try {
+    const result = await validator(options)
+    console.log(result)
+  } catch (error) {
     console.error(error)
   }
-  console.log(data)
-})
-
+})()
 ```
 
 **headers** Object of headers to pass in with the url request
 
-### Promise
-
 ```JavaScript
-const validator = require('html-validator')
-const options = {
- url: 'http://url-to-validate.com',
- headers: {foo:"bar"}
-}
-
-validator(options)
-  .then((data) => {
-    console.log(data)
-  })
-  .catch((error) => {
-    console.error(error)
-  })
-
-```
-
-#### Callback
-
-```JavaScript
-const validator = require('html-validator')
-const options = {
- url: 'http://url-to-validate.com',
- headers: {foo:bar}
-}
-
-validator(options, (error, data) => {
-  if (error) {
+(async () => {
+  const validator = require('html-validator')
+  const options = {
+  url: 'http://url-to-validate.com',
+  format: 'text',
+  headers: {foo:"bar"}
+  }
+  
+  try {
+    const result = await validator(options)
+    console.log(result)
+  } catch (error) {
     console.error(error)
   }
-  console.log(data)
-})
+})()
+```
 
+**isLocal** Set this to true if you want to validate local urls. Will lookup page and send data to validator
+
+```JavaScript
+(async () => {
+  const validator = require('html-validator')
+  const options = {
+    url: 'http://url-to-validate.com',
+    format: 'text',
+    isLocal: true
+  }
+  
+  try {
+    const result = await validator(options)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})()
 ```
 
 ## Related
 
+- [site-validator-cli](https://github.com/p1ho/site-validator-cli) CLI for validating a whole site or multiple pages
 - [html-validator-cli](https://github.com/zrrrzzt/html-validator-cli) CLI for this module
 
 ## License

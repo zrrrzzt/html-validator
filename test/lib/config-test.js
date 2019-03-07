@@ -62,3 +62,15 @@ tap.test('users defined headers takes prescient', async test => {
   tap.same(reqOptions.headers, headers, 'user headers take prescient')
   test.done()
 })
+
+tap.test('isLocal adds data to options', async test => {
+  var options = {
+    url: 'http://html5.validator.nu',
+    isLocal: true
+  }
+  var reqOptions = await config(options)
+
+  tap.equal(reqOptions.method, 'POST', 'Method is POST')
+  tap.ok(reqOptions.body, 'Body is set')
+  test.done()
+})
