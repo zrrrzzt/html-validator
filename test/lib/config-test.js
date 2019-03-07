@@ -1,31 +1,31 @@
 var tap = require('tap')
 var config = require('../../lib/config')
 
-tap.test('config returns expected object as default', function (test) {
+tap.test('config returns expected object as default', async test => {
   var options = {}
-  var reqOptions = config(options)
+  var reqOptions = await config(options)
 
   tap.equal(reqOptions.qs.out, 'json', 'JSON is default format')
   test.done()
 })
 
-tap.test('config returns expected object with inputs', function (test) {
+tap.test('config returns expected object with inputs', async test => {
   var options = {
     validator: 'http://html5.validator.nu',
     url: 'https://www.github.com'
   }
-  var reqOptions = config(options)
+  var reqOptions = await config(options)
 
   tap.equal(reqOptions.qs.doc, options.url, 'Uri is correct')
   tap.equal(reqOptions.uri, options.validator, 'Uri is correct')
   test.done()
 })
 
-tap.test('config returns expected object with input from data', function (test) {
+tap.test('config returns expected object with input from data', async test => {
   var options = {
     data: 'http://html5.validator.nu'
   }
-  var reqOptions = config(options)
+  var reqOptions = await config(options)
 
   tap.equal(reqOptions.body, options.data, 'Data is correct')
   tap.equal(reqOptions.method, 'POST', 'Method is POST')
@@ -33,7 +33,7 @@ tap.test('config returns expected object with input from data', function (test) 
   test.done()
 })
 
-tap.test('config uses passed in headers', function (test) {
+tap.test('config uses passed in headers', async test => {
   var headers = {
     foo: 'bar',
     'User-Agent': 'something'
@@ -41,13 +41,13 @@ tap.test('config uses passed in headers', function (test) {
   var options = {
     headers
   }
-  var reqOptions = config(options)
+  var reqOptions = await config(options)
 
   tap.same(reqOptions.headers, headers, 'headers are the same')
   test.done()
 })
 
-tap.test('users defined headers takes prescient', function (test) {
+tap.test('users defined headers takes prescient', async test => {
   var headers = {
     foo: 'bar',
     'User-Agent': 'something',
@@ -57,7 +57,7 @@ tap.test('users defined headers takes prescient', function (test) {
     headers,
     data: 'http://html5.validator.nu'
   }
-  var reqOptions = config(options)
+  var reqOptions = await config(options)
 
   tap.same(reqOptions.headers, headers, 'user headers take prescient')
   test.done()
