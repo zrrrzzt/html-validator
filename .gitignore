@@ -1,5 +1,6 @@
 # IDE
 .idea
+.vs
 .vscode
 
 # OS X
@@ -36,6 +37,3 @@ node_modules
 
 # Env
 .env
-
-# Lock
-package-lock.json
