@@ -27,7 +27,7 @@ Create an options object.
 
 **validator** You can override the default validator as long as it exposes the same REST interface.
 
-**url**/**data** The url to the page you want to validate or the data you want validated.
+**url**/**data** The url to the page you want to validate or the data you want validated. Can be an HTML, CSS or SVG document.
 
 **ignore** String or array of strings you want the checker to remove in the response
 
