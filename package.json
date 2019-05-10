@@ -39,7 +39,7 @@
   "devDependencies": {
     "coveralls": "3.0.3",
     "standard": "12.0.1",
-    "tap": "13.1.6"
+    "tap": "13.1.7"
   },
   "files": [
     "lib/*.js",
