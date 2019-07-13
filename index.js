@@ -14,6 +14,5 @@ module.exports = async options => {
     throw new Error('Invalid url')
   }
 
-  const result = await validate(options)
-  return result
+  return validate(options)
 }
