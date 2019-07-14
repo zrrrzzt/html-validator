@@ -33,6 +33,8 @@ Create an options object.
 
 **isLocal** Set this to true if you want to validate local urls
 
+**isFragment** Set this to true if your data input is not a complete document
+
 ```JavaScript
 (async () => {
   const validator = require('html-validator')
@@ -139,6 +141,25 @@ Create an options object.
     url: 'http://url-to-validate.com',
     format: 'text',
     isLocal: true
+  }
+  
+  try {
+    const result = await validator(options)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})()
+```
+
+**isFragment** Set this to true if you want to validate something that is not a complete document
+
+```JavaScript
+(async () => {
+  const validator = require('html-validator')
+  const options = {
+    data: '<p>This is a fragment</p>',
+    isFragment: true
   }
   
   try {

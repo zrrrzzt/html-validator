@@ -97,6 +97,28 @@ tap.test('Should get 0 error messages from valid.html', function (test) {
     })
 })
 
+tap.test('Should get 0 error messages from valid fragment', function (test) {
+  const options = {
+    format: 'json',
+    data: '<p>This is valid stuff</p>',
+    isFragment: true
+  }
+  validator(options)
+    .then((data) => {
+      var errors = 0
+      data.messages.forEach(function (msg) {
+        if (msg.type === 'error') {
+          errors++
+        }
+      })
+      tap.equal(errors, 0, 'fragment is valid')
+      test.done()
+    })
+    .catch((error) => {
+      throw error
+    })
+})
+
 tap.test('Should get 1 error message from invalid.html', function (test) {
   const options = {
     format: 'json',
@@ -111,6 +133,28 @@ tap.test('Should get 1 error message from invalid.html', function (test) {
         }
       })
       tap.equal(errors, 1, 'html is invalid')
+      test.done()
+    })
+    .catch((error) => {
+      throw error
+    })
+})
+
+tap.test('Should get 2 error message from invalid fragment', function (test) {
+  const options = {
+    format: 'json',
+    data: '<div>This is not legal',
+    isFragment: true
+  }
+  validator(options)
+    .then((data) => {
+      var errors = 0
+      data.messages.forEach(function (msg) {
+        if (msg.type === 'error') {
+          errors++
+        }
+      })
+      tap.equal(errors, 2, 'fragment is invalid')
       test.done()
     })
     .catch((error) => {
