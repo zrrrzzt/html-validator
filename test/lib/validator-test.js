@@ -10,12 +10,12 @@ const whatwgResponse = {
 }
 
 tap.test('returns whatwg if validator is set', async test => {
-  const html = await readFile('test/data/valid.html')
+  const html = await readFile('test/data/valid.html', 'utf-8')
   const options = {
     data: html,
     validator: 'whatwg'
   }
   const results = await validator(options)
-  tap.equal(results, whatwgResponse, 'Got whatwg data')
+  tap.equal(JSON.stringify(results), JSON.stringify(whatwgResponse), 'Got whatwg data')
   return test.done()
 })
