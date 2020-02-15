@@ -25,11 +25,11 @@ $ npm i html-validator
 
 Create an options object.
 
-**format** This is the formatting of the returned data. It supports json (default) and text.
+**format** This is the formatting of the returned data. It supports json (default), html, xhtml, xml, gnu and text for W3C and json for WHATWG.
 
 **validator** You can override the default validator (W3C) as long as it exposes the same REST interface. To use WHATWG just pass `WHATWG` as a string
 
-**url**/**data** The url to the page you want to validate or the data you want validated. Can be an HTML, CSS or SVG document if you use the W3C validator and html if you use the WHATWG.
+**url**/**data** The url to the page you want to validate or the data you want validated.
 
 **ignore** String or array of strings or rules (when using WHATWG) you want the checker to remove in the response
 
