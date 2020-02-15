@@ -4,15 +4,17 @@
 
 # html-validator
 
-A [Node.js](https://nodejs.org/) module for validating html using [validator.w3.org/nu](https://validator.w3.org/nu/)
+A [Node.js](https://nodejs.org/) module for validating html using [validator.w3.org/nu](https://validator.w3.org/nu/) or [html-validate](https://html-validate.org/)
 
-Requires Node >= 8.16.0 for older versions use v3.1.3
+Requires Node >= 19.19.0 for older versions use v4.1.1
 
 ## Module
 
 Supports the following modes from Validator.nu [Web Service Interface](https://github.com/validator/validator/wiki/Service-%C2%BB-HTTP-interface)
 - Document URL as a GET parameter; the service retrieves the document by URL over HTTP or HTTPS.
 - Document POSTed as the HTTP entity body; parameters in query string as with GET.
+
+From html-validate it will only validate against the WHATWG standards.
 
 ### Installation
 
@@ -23,24 +25,27 @@ $ npm i html-validator
 
 Create an options object.
 
-**format** This is the formatting of the returned data. It supports json (default), html, xhtml, xml, gnu and text.
+**format** This is the formatting of the returned data. It supports json (default) and text.
 
-**validator** You can override the default validator as long as it exposes the same REST interface.
+**validator** You can override the default validator (W3C) as long as it exposes the same REST interface. To use WHATWG just pass `WHATWG` as a string
 
-**url**/**data** The url to the page you want to validate or the data you want validated. Can be an HTML, CSS or SVG document.
+**url**/**data** The url to the page you want to validate or the data you want validated. Can be an HTML, CSS or SVG document if you use the W3C validator and html if you use the WHATWG.
 
-**ignore** String or array of strings you want the checker to remove in the response
+**ignore** String or array of strings or rules (when using WHATWG) you want the checker to remove in the response
 
 **isLocal** Set this to true if you want to validate local urls
 
 **isFragment** Set this to true if your data input is not a complete document
+
+
+#### W3C (default)
 
 ```JavaScript
 (async () => {
   const validator = require('html-validator')
   const options = {
   url: 'http://url-to-validate.com',
-  format: 'text'
+    format: 'text'
   }
   
   try {
@@ -58,9 +63,9 @@ Create an options object.
   const validator = require('html-validator')
   const { readFileSync } = require('fs')
   const options = {
-  url: 'http://url-to-validate.com',
-  format: 'text',
-  data: readFileSync('file-to-validate.html', 'utf8')
+    url: 'http://url-to-validate.com',
+    format: 'text',
+    data: readFileSync('file-to-validate.html', 'utf8')
   }
   
   try {
@@ -72,15 +77,33 @@ Create an options object.
 })()
 ```
 
-**validator** You can override the default validator as long as it exposes the same REST interface.
+**validator** You can override the default validator as long as it exposes the same REST interface. Or use the WHATWG option for validating your files locally
 
 ```JavaScript
 (async () => {
   const validator = require('html-validator')
   const options = {
-  url: 'http://url-to-validate.com',
-  validator: 'http://html5.validator.nu',
-  format: 'text'
+    url: 'http://url-to-validate.com',
+    validator: 'http://html5.validator.nu',
+    format: 'text'
+  }
+  
+  try {
+    const result = await validator(options)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})()
+```
+
+```JavaScript
+(async () => {
+  const validator = require('html-validator')
+  const options = {
+    url: 'http://url-to-validate.com',
+    validator: 'WHATWG',
+    format: 'text'
   }
   
   try {
@@ -98,9 +121,9 @@ Create an options object.
 (async () => {
   const validator = require('html-validator')
   const options = {
-  url: 'http://url-to-validate.com',
-  format: 'text',
-  ignore: 'Error: Stray end tag “div”.'
+    url: 'http://url-to-validate.com',
+    format: 'text',
+    ignore: 'Error: Stray end tag “div”.'
   }
   
   try {
@@ -118,9 +141,9 @@ Create an options object.
 (async () => {
   const validator = require('html-validator')
   const options = {
-  url: 'http://url-to-validate.com',
-  format: 'text',
-  headers: {foo:"bar"}
+    url: 'http://url-to-validate.com',
+    format: 'text',
+    headers: {foo:"bar"}
   }
   
   try {
@@ -171,10 +194,35 @@ Create an options object.
 })()
 ```
 
+#### WHATWG
+
+Using this option will validate your files locally and will probably speed up your tests in addition to not sending data over the wire for validation.
+
+You can follow all the examples from W3C as long as you changes the options validator property to `WHATWG`
+
+```JavaScript
+(async () => {
+  const validator = require('html-validator')
+  const options = {
+    validator: 'WHATWG',
+    data: '<p>This is a fragment</p>',
+    isFragment: true
+  }
+  
+  try {
+    const result = await validator(options)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})()
+```
+
 ## Related
 
 - [site-validator-cli](https://github.com/p1ho/site-validator-cli) CLI for validating a whole site or multiple pages
 - [html-validator-cli](https://github.com/zrrrzzt/html-validator-cli) CLI for this module
+- [html-validate](https://www.npmjs.com/package/html-validate) offline HTML5 validator
 
 ## License
 
