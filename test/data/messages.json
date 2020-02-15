@@ -1,0 +1,35 @@
+[
+  {
+    "ruleId": "close-order",
+    "severity": 2,
+    "message": "Mismatched close-tag, expected '</div>' but found '</body>'.",
+    "offset": 104,
+    "line": 1,
+    "column": 105,
+    "size": 5,
+    "selector": null,
+    "context": false
+  },
+  {
+    "ruleId": "close-order",
+    "severity": 2,
+    "message": "Mismatched close-tag, expected '</body>' but found '</html>'.",
+    "offset": 111,
+    "line": 1,
+    "column": 112,
+    "size": 5,
+    "selector": null,
+    "context": false
+  },
+  {
+    "ruleId": "close-order",
+    "severity": 2,
+    "message": "Missing close-tag, expected '</html>' but document ended before it was found.",
+    "offset": 117,
+    "line": 1,
+    "column": 118,
+    "size": 0,
+    "selector": null,
+    "context": false
+  }
+]
