@@ -24,3 +24,11 @@ tap.test('you can filter by message', test => {
   tap.equal(filtered.length, 2, 'Messages filter ok')
   test.done()
 })
+
+tap.test('you can filter by string', test => {
+  const messages = require('../data/messages.json')
+  const ignores = 'close-order'
+  const filtered = filterMessages(messages, ignores)
+  tap.equal(filtered.length, 0, 'Rule filter by string ok')
+  test.done()
+})
