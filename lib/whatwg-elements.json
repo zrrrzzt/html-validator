@@ -1,0 +1,6 @@
+{
+  "button": {
+    "inherit": "button",
+    "requiredAttributes": []
+  }
+}
