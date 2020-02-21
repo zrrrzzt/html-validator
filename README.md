@@ -6,7 +6,7 @@
 
 A [Node.js](https://nodejs.org/) module for validating html using [validator.w3.org/nu](https://validator.w3.org/nu/) or [html-validate](https://html-validate.org/)
 
-Requires Node >= 19.19.0 for older versions use v4.1.1
+Requires Node >= 10.19.0 for older versions use v4.1.1
 
 ## Module
 
