@@ -44,7 +44,6 @@
   },
   "files": [
     "lib/*.js",
-    "lib/*.json",
     "index.js"
   ]
 }
