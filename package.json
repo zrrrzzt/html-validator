@@ -1,6 +1,6 @@
 {
   "name": "html-validator",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "description": "Validate html using validator.w3.org/nu",
   "license": "MIT",
   "author": {
