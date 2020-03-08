@@ -1,0 +1,20 @@
+name: Build, Test, and Publish on release
+on:
+  release:
+    types: [published]
+    branches: [master]
+jobs:
+  build:
+    name: Build, test and publish
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+        registry-url: 'https://registry.npmjs.org'
+    - run: npm install
+    - run: npm test
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
