@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/zrrrzzt/html-validator#readme",
   "dependencies": {
-    "html-validate": "2.18.0",
+    "html-validate": "2.18.1",
     "request": "2.88.2",
     "valid-url": "1.0.9"
   },
