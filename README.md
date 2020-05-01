@@ -6,7 +6,12 @@
 
 A [Node.js](https://nodejs.org/) module for validating html using [validator.w3.org/nu](https://validator.w3.org/nu/) or [html-validate](https://html-validate.org/)
 
-Requires Node >= 10.19.0 for older versions use v4.1.1
+Requires Node >= 10.20.1 for older versions use v4.1.1
+
+## Webpack
+
+If you are using Webpack you might have problems with the 5.1.x series due to `html-validate`and the cli imports.
+At the moment the best solution is probably to stick with the 5.0.2
 
 ## Module
 
