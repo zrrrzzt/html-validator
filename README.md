@@ -120,6 +120,26 @@ Create an options object.
 })()
 ```
 
+or run the w3c validator locally with docker `$ docker run -d -p 8888:8888 validator/validator` and
+
+```JavaScript
+(async () => {
+  const validator = require('html-validator')
+  const options = {
+    url: 'http://url-to-validate.com',
+    validator: 'http://localhost:8888',
+    format: 'text'
+  }
+  
+  try {
+    const result = await validator(options)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})()
+```
+
 **ignore** String or array of strings you want the checker to remove in the response. Requires format = text
 
 ```JavaScript
