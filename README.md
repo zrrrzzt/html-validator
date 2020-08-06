@@ -49,7 +49,7 @@ Create an options object.
 (async () => {
   const validator = require('html-validator')
   const options = {
-  url: 'http://url-to-validate.com',
+    url: 'http://url-to-validate.com',
     format: 'text'
   }
   
