@@ -2,7 +2,7 @@ name: Build, Test, and Publish on release
 on:
   release:
     types: [published]
-    branches: [master]
+    branches: [main]
 jobs:
   build:
     name: Build, test and publish
