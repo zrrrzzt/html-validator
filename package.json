@@ -1,7 +1,7 @@
 {
   "name": "html-validator",
   "version": "5.1.14",
-  "description": "Validate html using validator.w3.org/nu",
+  "description": "Validate html using validator.w3.org/nu og html-validate",
   "license": "MIT",
   "author": {
     "name": "Geir Gåsodden",
@@ -22,7 +22,9 @@
   },
   "keywords": [
     "html-validator",
-    "validation"
+    "html-validate",
+    "validation",
+    "validator.w3.org"
   ],
   "repository": {
     "type": "git",
