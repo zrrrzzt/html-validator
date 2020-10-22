@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "coveralls": "3.1.0",
-    "standard": "14.3.4",
+    "standard": "15.0.0",
     "tap": "14.10.8"
   },
   "files": [
