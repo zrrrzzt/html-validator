@@ -6,5 +6,5 @@ tap.test('returns document from fragment', test => {
   const document = createDocument(fragment)
   const expectedDocument = '<!DOCTYPE html><html lang="en"><head><title>Document from fragment</title></head><body><p>This is a fragment</p></body></html>'
   tap.equal(document, expectedDocument, 'document is correct')
-  test.done()
+  test.end()
 })

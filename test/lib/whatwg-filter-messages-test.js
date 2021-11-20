@@ -6,7 +6,7 @@ tap.test('returns all if none of the filters matches', test => {
   const ignores = []
   const filtered = filterMessages(messages, ignores)
   tap.equal(filtered.length, 3, 'None filtered ok')
-  test.done()
+  test.end()
 })
 
 tap.test('you can filter by ruleId', test => {
@@ -14,7 +14,7 @@ tap.test('you can filter by ruleId', test => {
   const ignores = ['close-order']
   const filtered = filterMessages(messages, ignores)
   tap.equal(filtered.length, 0, 'Rule filter ok')
-  test.done()
+  test.end()
 })
 
 tap.test('you can filter by message', test => {
@@ -22,7 +22,7 @@ tap.test('you can filter by message', test => {
   const ignores = ["Mismatched close-tag, expected '</body>' but found '</html>'."]
   const filtered = filterMessages(messages, ignores)
   tap.equal(filtered.length, 2, 'Messages filter ok')
-  test.done()
+  test.end()
 })
 
 tap.test('you can filter by string', test => {
@@ -30,5 +30,5 @@ tap.test('you can filter by string', test => {
   const ignores = 'close-order'
   const filtered = filterMessages(messages, ignores)
   tap.equal(filtered.length, 0, 'Rule filter by string ok')
-  test.done()
+  test.end()
 })

@@ -17,5 +17,5 @@ tap.test('returns whatwg if validator is set', async test => {
   }
   const results = await validator(options)
   tap.equal(JSON.stringify(results), JSON.stringify(whatwgResponse), 'Got whatwg data')
-  return test.done()
+  return test.end()
 })

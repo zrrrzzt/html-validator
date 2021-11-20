@@ -13,7 +13,7 @@ tap.test('Requires options to be specified', function (test) {
     })
     .catch((error) => {
       tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-      test.done()
+      test.end()
     })
 })
 
@@ -26,7 +26,7 @@ tap.test('Requires options.url or options.data to be specified', function (test)
     })
     .catch((error) => {
       tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-      test.done()
+      test.end()
     })
 })
 
@@ -41,7 +41,7 @@ tap.test('Returns error if invalid validator is specified', function (test) {
     })
     .catch((error) => {
       tap.ok(error, 'Validator not found')
-      test.done()
+      test.end()
     })
 })
 
@@ -56,7 +56,7 @@ tap.test('Requires options.url to be a valid url', function (test) {
     })
     .catch((error) => {
       tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-      test.done()
+      test.end()
     })
 })
 
@@ -72,7 +72,7 @@ tap.test('Returns error if not status 200 OK', function (test) {
     })
     .catch((error) => {
       tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-      test.done()
+      test.end()
     })
 })
 
@@ -90,7 +90,7 @@ tap.test('Should get 0 error messages from valid.html', function (test) {
         }
       })
       tap.equal(errors, 0, 'html is valid')
-      test.done()
+      test.end()
     })
     .catch((error) => {
       throw error
@@ -112,7 +112,7 @@ tap.test('Should get 0 error messages from valid fragment', function (test) {
         }
       })
       tap.equal(errors, 0, 'fragment is valid')
-      test.done()
+      test.end()
     })
     .catch((error) => {
       throw error
@@ -133,7 +133,7 @@ tap.test('Should get 1 error message from invalid.html', function (test) {
         }
       })
       tap.equal(errors, 1, 'html is invalid')
-      test.done()
+      test.end()
     })
     .catch((error) => {
       throw error
@@ -155,7 +155,7 @@ tap.test('Should get 2 error message from invalid fragment', function (test) {
         }
       })
       tap.equal(errors, 2, 'fragment is invalid')
-      test.done()
+      test.end()
     })
     .catch((error) => {
       throw error
@@ -171,7 +171,7 @@ tap.test('Should get 0 error messages from invalid.html if ignored', (test) => {
   validator(options)
     .then((data) => {
       tap.equal(false, /Error/.test(data), 'No errors found')
-      test.done()
+      test.end()
     })
     .catch((error) => {
       throw error

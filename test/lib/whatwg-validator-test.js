@@ -9,7 +9,7 @@ tap.test('returns valid for valid html', async test => {
   }
   const result = await validator(options)
   tap.equal(result.isValid, true, 'Valid html ok')
-  return test.done()
+  return test.end()
 })
 
 tap.test('returns invalid for invalid html', async test => {
@@ -19,7 +19,7 @@ tap.test('returns invalid for invalid html', async test => {
   }
   const result = await validator(options)
   tap.equal(result.isValid, false, 'invalid html ok')
-  return test.done()
+  return test.end()
 })
 
 tap.test('it supports ignore', async test => {
@@ -30,5 +30,5 @@ tap.test('it supports ignore', async test => {
   }
   const result = await validator(options)
   tap.equal(result.isValid, true, 'ignore ok')
-  return test.done()
+  return test.end()
 })

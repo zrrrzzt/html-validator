@@ -6,7 +6,7 @@ tap.test('returns data', async test => {
   const data = await getData(url)
 
   tap.ok(data, 'Got data')
-  return test.done()
+  return test.end()
 })
 
 tap.test('throws error if invalid url', async test => {
@@ -15,6 +15,6 @@ tap.test('throws error if invalid url', async test => {
     await getData(url)
   } catch (error) {
     tap.ok(error, 'Got error')
-    return test.done()
+    return test.end()
   }
 })

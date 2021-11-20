@@ -6,7 +6,7 @@ tap.test('config returns expected object as default', async test => {
   const reqOptions = await config(options)
 
   tap.equal(reqOptions.qs.out, 'json', 'JSON is default format')
-  return test.done()
+  return test.end()
 })
 
 tap.test('config returns expected object with inputs', async test => {
@@ -18,7 +18,7 @@ tap.test('config returns expected object with inputs', async test => {
 
   tap.equal(reqOptions.qs.doc, options.url, 'Uri is correct')
   tap.equal(reqOptions.uri, options.validator, 'Uri is correct')
-  return test.done()
+  return test.end()
 })
 
 tap.test('config returns expected object with input from data', async test => {
@@ -30,7 +30,7 @@ tap.test('config returns expected object with input from data', async test => {
   tap.equal(reqOptions.body, options.data, 'Data is correct')
   tap.equal(reqOptions.method, 'POST', 'Method is POST')
   tap.ok(reqOptions.headers, 'Headers are set')
-  return test.done()
+  return test.end()
 })
 
 tap.test('config uses passed in headers', async test => {
@@ -44,7 +44,7 @@ tap.test('config uses passed in headers', async test => {
   const reqOptions = await config(options)
 
   tap.same(reqOptions.headers, headers, 'headers are the same')
-  return test.done()
+  return test.end()
 })
 
 tap.test('users defined headers takes prescient', async test => {
@@ -60,7 +60,7 @@ tap.test('users defined headers takes prescient', async test => {
   const reqOptions = await config(options)
 
   tap.same(reqOptions.headers, headers, 'user headers take prescient')
-  return test.done()
+  return test.end()
 })
 
 tap.test('isLocal adds data to options', async test => {
@@ -72,5 +72,5 @@ tap.test('isLocal adds data to options', async test => {
 
   tap.equal(reqOptions.method, 'POST', 'Method is POST')
   tap.ok(reqOptions.body, 'Body is set')
-  return test.done()
+  return test.end()
 })
