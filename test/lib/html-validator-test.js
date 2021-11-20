@@ -83,7 +83,7 @@ tap.test('Should get 0 error messages from valid.html', function (test) {
   }
   validator(options)
     .then((data) => {
-      var errors = 0
+      let errors = 0
       data.messages.forEach(function (msg) {
         if (msg.type === 'error') {
           errors++
@@ -105,7 +105,7 @@ tap.test('Should get 0 error messages from valid fragment', function (test) {
   }
   validator(options)
     .then((data) => {
-      var errors = 0
+      let errors = 0
       data.messages.forEach(function (msg) {
         if (msg.type === 'error') {
           errors++
@@ -126,7 +126,7 @@ tap.test('Should get 1 error message from invalid.html', function (test) {
   }
   validator(options)
     .then((data) => {
-      var errors = 0
+      let errors = 0
       data.messages.forEach(function (msg) {
         if (msg.type === 'error') {
           errors++
@@ -148,7 +148,7 @@ tap.test('Should get 2 error message from invalid fragment', function (test) {
   }
   validator(options)
     .then((data) => {
-      var errors = 0
+      let errors = 0
       data.messages.forEach(function (msg) {
         if (msg.type === 'error') {
           errors++
