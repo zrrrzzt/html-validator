@@ -5,7 +5,7 @@ tap.test('config returns expected object as default', async test => {
   const options = {}
   const reqOptions = await config(options)
 
-  tap.equal(reqOptions.qs.out, 'json', 'JSON is default format')
+  tap.equal(reqOptions.params.out, 'json', 'JSON is default format')
   return test.end()
 })
 
@@ -16,8 +16,8 @@ tap.test('config returns expected object with inputs', async test => {
   }
   const reqOptions = await config(options)
 
-  tap.equal(reqOptions.qs.doc, options.url, 'Uri is correct')
-  tap.equal(reqOptions.uri, options.validator, 'Uri is correct')
+  tap.equal(reqOptions.params.doc, options.url, 'Uri is correct')
+  tap.equal(reqOptions.url, options.validator, 'Uri is correct')
   return test.end()
 })
 
@@ -27,8 +27,8 @@ tap.test('config returns expected object with input from data', async test => {
   }
   const reqOptions = await config(options)
 
-  tap.equal(reqOptions.body, options.data, 'Data is correct')
-  tap.equal(reqOptions.method, 'POST', 'Method is POST')
+  tap.equal(reqOptions.data, options.data, 'Data is correct')
+  tap.equal(reqOptions.method, 'post', 'Method is POST')
   tap.ok(reqOptions.headers, 'Headers are set')
   return test.end()
 })
@@ -70,7 +70,7 @@ tap.test('isLocal adds data to options', async test => {
   }
   const reqOptions = await config(options)
 
-  tap.equal(reqOptions.method, 'POST', 'Method is POST')
-  tap.ok(reqOptions.body, 'Body is set')
+  tap.equal(reqOptions.method, 'post', 'Method is post')
+  tap.ok(reqOptions.data, 'Body is set')
   return test.end()
 })

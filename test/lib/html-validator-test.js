@@ -83,6 +83,7 @@ tap.test('Should get 0 error messages from valid.html', function (test) {
   }
   validator(options)
     .then((data) => {
+      console.log(JSON.stringify(data, null, 2))
       let errors = 0
       data.messages.forEach(function (msg) {
         if (msg.type === 'error') {
