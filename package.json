@@ -39,7 +39,7 @@
     "valid-url": "1.0.9"
   },
   "devDependencies": {
-    "standard": "16.0.4",
+    "standard": "17.0.0",
     "tap": "15.2.3"
   },
   "files": [
