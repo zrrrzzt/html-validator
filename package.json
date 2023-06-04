@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "standard": "17.1.0",
-    "tap": "16.3.4"
+    "tap": "16.3.6"
   },
   "files": [
     "lib/*.js",
